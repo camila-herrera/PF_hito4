@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz de Backend</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4C5425;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .button {
+      background-color: #E5B129;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    .button:hover {
+      background-color: #c98d17;
+    }
+
+    .response-box {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .response-box pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    h2 {
+      color: #4C5425;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Interfaz de Backend</h1>
+  </header>
+
+  <div class="container">
+    <h2>Usuarios</h2>
+    <button class="button" onclick="getUsuarios()">Obtener Usuarios</button>
+    <div id="usuariosResponse" class="response-box"></div>
+
+    <h2>Productos</h2>
+    <button class="button" onclick="getProductos()">Obtener Productos</button>
+    <div id="productosResponse" class="response-box"></div>
+
+    <h2>Pedidos</h2>
+    <button class="button" onclick="getPedidos()">Obtener Pedidos</button>
+    <div id="pedidosResponse" class="response-box"></div>
+
+    <h2>Transacciones</h2>
+    <button class="button" onclick="createTransaction()">Crear Transacción</button>
+    <div id="transactionResponse" class="response-box"></div>
+  </div>
+
+  <script>
+    const API_URL = 'http://localhost:5000/api'; // Asegúrate de que esta URL coincida con tu backend
+
+    async function fetchData(endpoint) {
+      try {
+        const response = await fetch(`${API_URL}${endpoint}`);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error("Error:", error);
+        return { error: "Hubo un error al obtener los datos." };
+      }
+    }
+
+    function displayResponse(response, elementId) {
+      const element = document.getElementById(elementId);
+      element.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
+    }
+
+    async function getUsuarios() {
+      const response = await fetchData('/usuarios');
+      displayResponse(response, 'usuariosResponse');
+    }
+
+    async function getProductos() {
+      const response = await fetchData('/productos');
+      displayResponse(response, 'productosResponse');
+    }
+
+    async function getPedidos() {
+      const response = await fetchData('/pedidos/historial');
+      displayResponse(response, 'pedidosResponse');
+    }
+
+    async function createTransaction() {
+      try {
+        const response = await fetch(`${API_URL}/transacciones`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ mensaje: 'Transacción completada exitosamente' }),
+        });
+        const data = await response.json();
+        displayResponse(data, 'transactionResponse');
+      } catch (error) {
+        console.error('Error en la transacción:', error);
+      }
+    }
+  </script>
+</body>
+</html>

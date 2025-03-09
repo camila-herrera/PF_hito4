@@ -1,0 +1,25 @@
+
+.btn-custom {
+  background-color: #E5B129;
+  color: #fff;
+}
+
+.btn-custom:hover {
+  background-color: #4C5425;
+  color: #fff;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
