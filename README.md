@@ -71,4 +71,4 @@ npm install
 
 (en el backend puedes hacer correr el index que esta en public, esto te muestra un poco la composicion del backend) DEBES TENER EL SERVIDOR LEVANTADO PARA VER LA INTERFAZ
 
-postgresql://:@/base_online
+### backend deploy: https://backend-seguridad.onrender.com
