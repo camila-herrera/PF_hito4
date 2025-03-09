@@ -1,5 +1,7 @@
 ### backend deploy: https://pf-hito4.onrender.com/api
 
+### Ejemplo https://pf-hito4.onrender.com/api/productos
+
 
 ## 📌 API Endpoints: 
 
