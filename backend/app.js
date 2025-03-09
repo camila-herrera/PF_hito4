@@ -5,12 +5,12 @@ const productRoutes = require('./routes/productRoutes');
 const pedidosRoutes = require('./routes/pedidosRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
-
-const cors = require('cors');
-dotenv.config();
 const app = express();
+const cors = require('cors');
+app.use(cors({ origin: '*' }));
 
-app.use(cors());
+dotenv.config();
+
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
