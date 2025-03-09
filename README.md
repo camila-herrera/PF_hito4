@@ -1,5 +1,4 @@
 ## 📌 API Endpoints: 
-(en el backend puedes hacer correr el index que esta en public, esto te muestra un poco la composicion del backend) DEBES TENER EL SERVIDOR LEVANTADO PARA VER LA INTERFAZ
 
 - Despues de descargar el programa, clonar o forkear este repositorio debes saber que tienes que: 
 
@@ -11,8 +10,8 @@ npm install
 ### Configurar sus variables de entorno para que corra el programa, lo minimo necesario intalado sera así:
 
 ### **.env (archivo por crear en backend)**
-- DB_USER= ***
-- DB_HOST= ***
+- DB_USER=DB_USER=postgres
+- DB_HOST=localhost
 - DB_NAME= ***
 - DB_PASSWORD= ***
 - DB_PORT= 5432
@@ -24,7 +23,7 @@ npm install
 - npm start
 
 
-### Dejo los datos para el front
+### Dejo los datos para el frontend donde igual hay que instalar dependencias (npm install)y crear el archivo .env dentro del frontend.
 
 ### **.env frontend**
 - VITE_API_URL=http://localhost:5000/api
@@ -65,5 +64,11 @@ npm install
 <br>
 
 ### **💳 Transacciones (`/api/transacciones`)**  
-- **POST `/`** → Completa una transacción y devuelve un mensaje de éxito.  
-# PF_hito4
+- **POST `/`** → Completa una transacción y devuelve un mensaje de éxito. 
+
+<br>
+
+
+(en el backend puedes hacer correr el index que esta en public, esto te muestra un poco la composicion del backend) DEBES TENER EL SERVIDOR LEVANTADO PARA VER LA INTERFAZ
+
+postgresql://:@/base_online

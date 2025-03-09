@@ -1,7 +1,5 @@
 crear productos en sql
 
-
-
 CREATE TEMP TABLE temp_productos (data JSONB);
 
 INSERT INTO temp_productos (data)
@@ -182,3 +180,7 @@ CREATE TYPE producto_type AS (
 
 INSERT INTO productos (nombre, descripcion, imagen_url, stock, precio)
 SELECT * FROM jsonb_populate_recordset(NULL::producto_type, (SELECT data FROM temp_productos));
+
+UPDATE usuarios
+SET rol = 'cliente'
+WHERE id = 3;

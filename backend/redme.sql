@@ -22,7 +22,7 @@ CREATE TABLE productos (
   precio NUMERIC(10, 2) NOT NULL,
   categoria VARCHAR(50),
   stock INT NOT NULL,
-  imagen_url VARCHAR(255),
+  imagen_url TEXT,
   fecha_agregado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
